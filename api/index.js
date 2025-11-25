@@ -6,7 +6,6 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mainRouter = require('../src/routes/index');
 
-app.use(helmet());
 app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
