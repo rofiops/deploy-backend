@@ -6,21 +6,11 @@ const cors = require('cors');
 const morgan = require('morgan');
 const mainRouter = require('../src/routes/index');
 
+app.use(express.json())
 app.use(cors())
 app.use(morgan('dev'));
-app.use(express.json());
-app.use(cookieParser());
 app.use('/api/v1', mainRouter);
 app.use('/img', express.static('src/upload'));
-
-app.get('/health', (req, res) => {
-  res.json({
-    status: 'OK',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime()
-  });
-});
-
 app.all('*', (req, res, next) => {
   next(new createError.NotFound());
 });
