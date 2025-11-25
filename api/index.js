@@ -1,12 +1,10 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
-const mainRouter = require('../src/routes/index');
 const app = express();
+const cors = require('cors');
+const morgan = require('morgan');
+const mainRouter = require('../src/routes/index');
 
 app.use(helmet());
 app.use(cors())
