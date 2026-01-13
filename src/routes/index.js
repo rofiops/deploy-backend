@@ -4,6 +4,12 @@ const ProductRouter = require('../routes/products')
 const CategoryRouter = require('../routes/category')
 const UserRouter = require('../routes/users')
 
+// Hello endpoint
+router.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Hello! Welcome to the API'
+  })
+})
 
 router
 .use('/products', ProductRouter)
